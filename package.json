@@ -1,0 +1,28 @@
+{
+  "name": "pwdocker",
+  "version": "1.0.1",
+  "description": "Minimal repository with recommended Playwright Dockerfile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrpool/pwdocker.git"
+  },
+  "keywords": [
+    "Playwright",
+    "browser-automation",
+    "container",
+    "docker"
+  ],
+  "author": "Jonathan Robert Pool",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jrpool/pwdocker/issues"
+  },
+  "homepage": "https://github.com/jrpool/pwdocker#readme",
+  "dependencies": {
+    "playwright": "*"
+  }
+}
