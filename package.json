@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/jrpool/pwdocker#readme",
   "dependencies": {
+    "@playwright/test": "*",
     "playwright": "*"
   }
 }
