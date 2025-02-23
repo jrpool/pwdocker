@@ -23,6 +23,10 @@
   },
   "homepage": "https://github.com/jrpool/pwdocker#readme",
   "dependencies": {
+    "accessibility-checker": "*",
+    "@axe-core/playwright": "*",
+    "@siteimprove/alfa-test-utils": "*",
+    "@siteimprove/alfa-playwright": "*",
     "@playwright/test": "*",
     "playwright": "*"
   }

@@ -1,0 +1,46 @@
+{
+    "counts": {
+        "ignored": 0,
+        "violation": 4,
+        "recommendation": 1,
+        "pass": 44,
+        "potentialviolation": 1,
+        "potentialrecommendation": 0,
+        "manual": 1,
+        "elements": 6,
+        "elementsViolation": 4,
+        "elementsViolationReview": 5
+    },
+    "startReport": 1740276929071,
+    "endReport": 1740276929493,
+    "toolID": "accessibility-checker-v4.0.1",
+    "policies": [
+        "IBM_Accessibility"
+    ],
+    "reportLevels": [
+        "violation",
+        "potentialviolation"
+    ],
+    "failLevels": [
+        "violation",
+        "potentialviolation"
+    ],
+    "scanID": "526d913c-e306-4b87-a571-b46c5eb4022b",
+    "pageScanSummary": [
+        {
+            "label": "pwdocker",
+            "counts": {
+                "ignored": 0,
+                "elements": 6,
+                "elementsViolation": 4,
+                "elementsViolationReview": 5,
+                "violation": 4,
+                "potentialviolation": 1,
+                "recommendation": 1,
+                "potentialrecommendation": 0,
+                "manual": 1,
+                "pass": 44
+            }
+        }
+    ]
+}

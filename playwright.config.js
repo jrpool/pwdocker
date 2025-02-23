@@ -17,7 +17,10 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   // Reporter to use
-  reporter: 'html',
+  reporter: [['junit', {
+    outputFile: 'results.xml',
+    PLAYWRIGHT_JUNIT_STRIP_ANSI: true
+  }]],
 
   use: {
     // Base URL to use in actions like `await page.goto('/')`.
