@@ -169,7 +169,7 @@
             "manual": 1,
             "pass": 44
         },
-        "scanTime": 29,
+        "scanTime": 41,
         "ruleArchive": "Latest Deployment (latest)",
         "policies": [
             "IBM_Accessibility"
@@ -178,10 +178,10 @@
             "violation",
             "potentialviolation"
         ],
-        "startScan": 1740338661846,
+        "startScan": 1740348417766,
         "URL": "https://example.com/"
     },
-    "scanID": "e8694031-aa1a-40d3-87df-bfb6896a3e0d",
+    "scanID": "cc9d3b57-f564-4ba4-84bb-5ef488dfdf6e",
     "toolID": "accessibility-checker-v4.0.1",
-    "label": "pwdocker"
+    "label": ""
 }

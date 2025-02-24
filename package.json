@@ -24,6 +24,7 @@
   "homepage": "https://github.com/jrpool/pwdocker#readme",
   "dependencies": {
     "accessibility-checker": "*",
+    "aslint-testaro": "*",
     "@axe-core/playwright": "*",
     "@siteimprove/alfa-test-utils": "*",
     "@siteimprove/alfa-playwright": "*",

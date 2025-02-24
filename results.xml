@@ -1,8 +1,8 @@
-<testsuites id="" name="" tests="5" failures="2" skipped="0" errors="0" time="14.730544">
-<testsuite name="index.spec.js" timestamp="2025-02-23T02:15:16.407Z" hostname="webkit" tests="5" failures="2" skipped="0" time="5.813" errors="0">
-<testcase name="simple › Playwright home page" classname="index.spec.js" time="0.744">
+<testsuites id="" name="" tests="5" failures="1" skipped="0" errors="0" time="12.792031">
+<testsuite name="index.spec.js" timestamp="2025-02-23T18:12:16.051Z" hostname="webkit" tests="5" failures="1" skipped="0" time="5.711" errors="0">
+<testcase name="simple › Playwright home page" classname="index.spec.js" time="1.367">
 </testcase>
-<testcase name="simple › Example" classname="index.spec.js" time="0.445">
+<testcase name="simple › Example" classname="index.spec.js" time="0.372">
 <failure message="index.spec.js:20:7 Example" type="FAILURE">
 <![CDATA[  [webkit] › index.spec.js:20:7 › simple › Example ─────────────────────────────────────────────────
 
@@ -22,7 +22,7 @@
 ]]>
 </failure>
 </testcase>
-<testcase name="alfa › alfa" classname="index.spec.js" time="0.9">
+<testcase name="alfa › alfa" classname="index.spec.js" time="0.797">
 <system-out>
 <![CDATA[Siteimprove found accessibility issues:
   [1mPage - Example Domain[22m
@@ -33,143 +33,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="axe › axe" classname="index.spec.js" time="0.92">
-<failure message="index.spec.js:41:7 axe" type="FAILURE">
-<![CDATA[  [webkit] › index.spec.js:41:7 › axe › axe ────────────────────────────────────────────────────────
-
-    Error: expect(received).toEqual(expected) // deep equality
-
-    - Expected  -   1
-    + Received  + 116
-
-    - Array []
-    + Array [
-    +   Object {
-    +     "description": "Ensure every HTML document has a lang attribute",
-    +     "help": "<html> element must have a lang attribute",
-    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/html-has-lang?application=playwright",
-    +     "id": "html-has-lang",
-    +     "impact": "serious",
-    +     "nodes": Array [
-    +       Object {
-    +         "all": Array [],
-    +         "any": Array [
-    +           Object {
-    +             "data": Object {
-    +               "messageKey": "noLang",
-    +             },
-    +             "id": "has-lang",
-    +             "impact": "serious",
-    +             "message": "The <html> element does not have a lang attribute",
-    +             "relatedNodes": Array [],
-    +           },
-    +         ],
-    +         "failureSummary": "Fix any of the following:
-    +   The <html> element does not have a lang attribute",
-    +         "html": "<html>",
-    +         "impact": "serious",
-    +         "none": Array [],
-    +         "target": Array [
-    +           "html",
-    +         ],
-    +       },
-    +     ],
-    +     "tags": Array [
-    +       "cat.language",
-    +       "wcag2a",
-    +       "wcag311",
-    +       "TTv5",
-    +       "TT11.a",
-    +       "EN-301-549",
-    +       "EN-9.3.1.1",
-    +       "ACT",
-    +     ],
-    +   },
-    +   Object {
-    +     "description": "Ensure the document has a main landmark",
-    +     "help": "Document should have one main landmark",
-    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=playwright",
-    +     "id": "landmark-one-main",
-    +     "impact": "moderate",
-    +     "nodes": Array [
-    +       Object {
-    +         "all": Array [
-    +           Object {
-    +             "data": null,
-    +             "id": "page-has-main",
-    +             "impact": "moderate",
-    +             "message": "Document does not have a main landmark",
-    +             "relatedNodes": Array [],
-    +           },
-    +         ],
-    +         "any": Array [],
-    +         "failureSummary": "Fix all of the following:
-    +   Document does not have a main landmark",
-    +         "html": "<html>",
-    +         "impact": "moderate",
-    +         "none": Array [],
-    +         "target": Array [
-    +           "html",
-    +         ],
-    +       },
-    +     ],
-    +     "tags": Array [
-    +       "cat.semantics",
-    +       "best-practice",
-    +     ],
-    +   },
-    +   Object {
-    +     "description": "Ensure all page content is contained by landmarks",
-    +     "help": "All page content should be contained by landmarks",
-    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=playwright",
-    +     "id": "region",
-    +     "impact": "moderate",
-    +     "nodes": Array [
-    +       Object {
-    +         "all": Array [],
-    +         "any": Array [
-    +           Object {
-    +             "data": Object {
-    +               "isIframe": false,
-    +             },
-    +             "id": "region",
-    +             "impact": "moderate",
-    +             "message": "Some page content is not contained by landmarks",
-    +             "relatedNodes": Array [],
-    +           },
-    +         ],
-    +         "failureSummary": "Fix any of the following:
-    +   Some page content is not contained by landmarks",
-    +         "html": "<div>
-    +     <h1>Example Domain</h1>
-    +     <p>This domain is for use in illustrative examples in documents. You may use this
-    +     domain in literature without prior coordination or asking for permission.</p>
-    +     <p><a href=\"https://www.iana.org/domains/example\">More information...</a></p>
-    + </div>",
-    +         "impact": "moderate",
-    +         "none": Array [],
-    +         "target": Array [
-    +           "div",
-    +         ],
-    +       },
-    +     ],
-    +     "tags": Array [
-    +       "cat.keyboard",
-    +       "best-practice",
-    +     ],
-    +   },
-    + ]
-
-      44 |     const results = await axeBuilder.analyze();
-      45 |     console.log(`Axe results:\n${JSON.stringify(results, null, 2)}`);
-    > 46 |     expect(results.violations).toEqual([]);
-         |                                ^
-      47 |   });
-      48 | });
-      49 |
-        at /Users/pool/Documents/Topics/repos/a11yTesting/pwdocker/tests/index.spec.js:46:32
-]]>
-</failure>
+<testcase name="axe › axe" classname="index.spec.js" time="0.926">
 <system-out>
 <![CDATA[Axe results:
 {
@@ -187,7 +51,7 @@
     "orientationAngle": 0,
     "orientationType": "landscape-primary"
   },
-  "timestamp": "2025-02-23T02:15:23.749Z",
+  "timestamp": "2025-02-23T18:12:24.004Z",
   "url": "https://example.com/",
   "toolOptions": {
     "reporter": "v1"
@@ -2035,7 +1899,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="ibm › ibm" classname="index.spec.js" time="2.804">
+<testcase name="ibm › ibm" classname="index.spec.js" time="2.249">
 <system-out>
 <![CDATA[ibm results:
 {
@@ -2051,7 +1915,7 @@
           "dom": "/html[1]",
           "aria": "/document[1]"
         },
-        "ruleTime": 0,
+        "ruleTime": 1,
         "reasonId": "Fail_3",
         "message": "Page detected as HTML, but does not have a 'lang' attribute",
         "messageArgs": [],
@@ -2078,7 +1942,7 @@
           "dom": "/html[1]/head[1]/style[1]",
           "aria": "/document[1]"
         },
-        "ruleTime": 1,
+        "ruleTime": 0,
         "reasonId": "Potential_1",
         "message": "Verify color is not used as the only visual means of conveying information",
         "messageArgs": [],
@@ -2105,7 +1969,7 @@
           "dom": "/html[1]/body[1]",
           "aria": "/document[1]"
         },
-        "ruleTime": 0,
+        "ruleTime": 1,
         "reasonId": "Fail_1",
         "message": "The page does not provide a way to quickly navigate to the main content (ARIA \"main\" landmark or a skip link)",
         "messageArgs": [],
@@ -2178,7 +2042,7 @@
       }
     ],
     "numExecuted": 51,
-    "ruleTime": 6,
+    "ruleTime": 3,
     "nls": {
       "html_lang_exists": {
         "0": "Page must identify the default language of the document with a 'lang' attribute",
@@ -2210,7 +2074,7 @@
         "manual": 1,
         "pass": 44
       },
-      "scanTime": 41,
+      "scanTime": 30,
       "ruleArchive": "Latest Deployment (latest)",
       "policies": [
         "IBM_Accessibility"
@@ -2219,16 +2083,16 @@
         "violation",
         "potentialviolation"
       ],
-      "startScan": 1740276929071,
+      "startScan": 1740334346203,
       "URL": "https://example.com/"
     },
-    "scanID": "526d913c-e306-4b87-a571-b46c5eb4022b",
+    "scanID": "65d79d51-21b6-46f9-9051-ed6f72204112",
     "toolID": "accessibility-checker-v4.0.1",
     "label": "pwdocker"
   },
   "puppeteer": {
     "_type": "Page",
-    "_guid": "page@0ab8b0955063432b5091f47c5806b47a"
+    "_guid": "page@100d3c15902bb2de4b6a1e8a009bfa08"
   }
 }
 ]]>
