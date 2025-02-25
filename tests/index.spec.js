@@ -25,6 +25,8 @@ const report = {
 // TESTS
 
 test.afterAll(async () => {
+  console.log('Report:');
+  console.log(report);
   const reportJSON = `${JSON.stringify(report, null, 2)}\n`;
   await fs.writeFile(`${__dirname}/report.json`, reportJSON);
 });

@@ -64,7 +64,7 @@
                 "dom": "/html[1]/body[1]",
                 "aria": "/document[1]"
             },
-            "ruleTime": 0,
+            "ruleTime": 1,
             "reasonId": "Fail_1",
             "message": "The page does not provide a way to quickly navigate to the main content (ARIA \"main\" landmark or a skip link)",
             "messageArgs": [],
@@ -137,7 +137,7 @@
         }
     ],
     "numExecuted": 51,
-    "ruleTime": 6,
+    "ruleTime": 7,
     "nls": {
         "html_lang_exists": {
             "0": "Page must identify the default language of the document with a 'lang' attribute",
@@ -169,7 +169,7 @@
             "manual": 1,
             "pass": 44
         },
-        "scanTime": 41,
+        "scanTime": 48,
         "ruleArchive": "Latest Deployment (latest)",
         "policies": [
             "IBM_Accessibility"
@@ -178,10 +178,10 @@
             "violation",
             "potentialviolation"
         ],
-        "startScan": 1740348417766,
+        "startScan": 1740448025833,
         "URL": "https://example.com/"
     },
-    "scanID": "cc9d3b57-f564-4ba4-84bb-5ef488dfdf6e",
+    "scanID": "ea70a60b-37ce-4fab-885b-9e6f2533264d",
     "toolID": "accessibility-checker-v4.0.1",
     "label": ""
 }
