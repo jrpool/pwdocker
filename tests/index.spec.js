@@ -30,13 +30,18 @@ test.afterAll(async () => {
 });
 
 test('alfa', async ({page}) => {
+  // Navigate to the target.
   await page.goto(report.target.url);
+  // Get the page content.
   const document = await page.evaluateHandle(() => window.document);
   const alfaPage = await Playwright.toPage(document);
+  // Perform the tool tests and get the result.
   const result = await Audit.run(alfaPage);
+  // Add the data and result to the report.
   report.acts.push({
     type: 'test',
     which: 'alfa',
+    data: {},
     result
   });
 });
@@ -48,6 +53,7 @@ test('aslint', async ({page}) => {
   const aslintBundle = await fs.readFile(
     `${__dirname}/../node_modules/aslint-testaro/aslint.bundle.js`, 'utf8'
   );
+  // Initialize the data and result.
   let data = {};
   let result = {};
   // Inject the ASLint bundle and runner into the head of the page.
@@ -64,7 +70,7 @@ test('aslint', async ({page}) => {
     document.body.insertAdjacentElement('beforeend', runnerEl);
   }, {aslintBundle, aslintRunner})
   .catch(error => {
-    const message = `ERROR: ASLint injection failed (${error.message.slice(0, 400)})`;
+    const message = `Script injection failed (${error.message.slice(0, 400)})`;
     data.prevented = true;
     data.error = message;
   });
@@ -72,7 +78,7 @@ test('aslint', async ({page}) => {
   // If the injection succeeded:
   if (! data.prevented) {
     try {
-      // Wait for the test result to be attached to the page.
+      // Wait for the test result to be in the page.
       const waitOptions = {
         state: 'attached',
         timeout: 1000 * process.env.TIMELIMIT_ASLINT
@@ -82,54 +88,32 @@ test('aslint', async ({page}) => {
     // If the result was not attached in time:
     catch(error) {
       // Report this.
-      const message = 'Attachment of test results to page failed';
+      const message = 'Insertion of test result into page failed or timed out';
       data.prevented = true;
       data.error = `${message} (${error.message})`;
     };
   }
-  // If the injection and the result attachment both succeeded:
+  // If the injection and the result insertion both succeeded:
   if (! data.prevented) {
-    // Get their text.
-    const toolReport = await reportLoc.textContent();
-    // Populate the act report.
-    result = JSON.parse(toolReport);
-    // If any rules were reported violated:
-    if (result.rules) {
-      // For each such rule:
-      Object.keys(result.rules).forEach(ruleID => {
-        // If the rule was passed or skipped or rules to be tested were specified and exclude it:
-        const excluded = act.rules && ! act.rules.includes(ruleID);
-        const instanceType = result.rules[ruleID].status.type;
-        // If rules to be tested were specified and exclude it or the rule was passed or skipped:
-        if (excluded || ['passed', 'skipped'].includes(instanceType)) {
-          // Delete the rule report.
-          delete result.rules[ruleID];
-        }
-      });
+    // Populate the result.
+    const resultJSON = await reportLoc.textContent();
+    try {
+      // Parse it as JSON.
+      result = JSON.parse(resultJSON);
     }
-  }
-  // Return the act report.
-  try {
-    JSON.stringify(data);
-  }
-  catch(error) {
-    const message = `ERROR: ASLint result cannot be made JSON (${error.message.slice(0, 200)})`;
-    data = {
-      prevented: true,
-      error: message
+    // If it is not JSON:
+    catch(error) {
+      // Report this.
+      const message = 'Test result not JSON';
+      data.prevented = true;
+      data.error = `${message} (${error.message})`;
     };
-  };
-  return {
-    data,
-    result
-  };
-
-  const document = await page.evaluateHandle(() => window.document);
-  const alfaPage = await Playwright.toPage(document);
-  const result = await Audit.run(alfaPage);
+  }
+  // Add the data and result to the report.
   report.acts.push({
     type: 'test',
-    which: 'alfa',
+    which: 'aslint',
+    data,
     result
   });
 });
