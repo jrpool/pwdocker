@@ -24,13 +24,6 @@ const report = {
 
 // TESTS
 
-test.afterAll(async () => {
-  console.log('Report:');
-  console.log(report);
-  const reportJSON = `${JSON.stringify(report, null, 2)}\n`;
-  await fs.writeFile(`${__dirname}/report.json`, reportJSON);
-});
-
 test('alfa', async ({page}) => {
   // Navigate to the target.
   await page.goto(report.target.url);
@@ -131,7 +124,7 @@ test('axe', async ({page}) => {
   });
 });
 
-test('ibm', async ({page}) => {
+test('ibm', async ({page}, testInfo) => {
   await page.goto(report.target.url);
   const result = await aChecker.getCompliance(page, '');
   await aChecker.close();
@@ -140,4 +133,8 @@ test('ibm', async ({page}) => {
     which: 'ibm',
     result
   });
+  const reportFile = testInfo.outputPath('report.json');
+  const reportJSON = `${JSON.stringify(report, null, 2)}\n`;
+  await fs.writeFile(reportFile, reportJSON);
+  console.log(reportJSON);
 });
